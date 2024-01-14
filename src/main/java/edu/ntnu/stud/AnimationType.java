@@ -52,6 +52,10 @@ public class AnimationType {
     elapsed = arg1;
   }
 
+  void init(SwanComponent sComponent) {
+
+  }
+
   void generate(JComponent component) {
   }
 }

@@ -29,14 +29,36 @@ frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //Exit app on clo
 ```
 Its as simple as that, and it can be used with any JComponent. For each following example, we will use the same frame and button.
 
+**Setting bounds**
+
+Setting the bounds of a SwanComponent also sets the bounds of the underlying JComponent.
+
+```java
+//Set the bounds of the component
+swanComponent.setBounds(100, 100, 140, 40);
+```
+
+The SwanComponent and the underlying JComponent will now have the same size, but only the SwanComponent has the given position. The JComponent always has a position of (0, 0) relative to the SwanComponent. 
+
+</br>
+
 **Animating SwanComponents**
 
 To animate a swan component, call the animate method with the desired animation.
 
 ```java
 //Simple position animation
-swanComponent.animate(new Position(100, 100));
+swanComponent.animate(new Position(200, 200));
 ```
+All animations are done relative to the component it is attatched to. The above example will move the button to (200, 200) relative to its current position.
+
+
+```java
+//Simple size animation
+swanComponent.animate(new Size(200, 200));
+```
+
+</br>
 
 **Easing Functions**
 

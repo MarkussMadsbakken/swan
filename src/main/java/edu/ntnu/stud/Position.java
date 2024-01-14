@@ -1,7 +1,5 @@
 package edu.ntnu.stud;
 
-import java.awt.Point;
-
 import javax.swing.JComponent;
 
 import edu.ntnu.stud.easing.EasingFunction;
@@ -9,6 +7,8 @@ import edu.ntnu.stud.easing.EasingFunction;
 public class Position extends AnimationType {
     private final float x;
     private final float y;
+    private int fromx;
+    private int fromy;
 
     public Position(float x, float y, float duration) {
         super(duration);
@@ -33,9 +33,15 @@ public class Position extends AnimationType {
     }
 
     @Override
+    public void init(SwanComponent sComponent) {
+        fromx = sComponent.getX();
+        fromy = sComponent.getY();
+    }
+
+    @Override
     public void generate(JComponent component) {
-        int xval = (int) (x * getEased());
-        int yval = (int) (y * getEased());
+        int xval = fromx + (int) (((int) x - fromx) * getEased());
+        int yval = fromy + (int) (((int) y - fromy) * getEased());
         component.setLocation(xval, yval);
     }
 }

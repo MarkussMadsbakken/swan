@@ -23,7 +23,7 @@ class SwanComponent extends javax.swing.JComponent {
     component.setBounds(0, 0, width, height);
   }
 
-  public SwanComponent getThis() {
+  private SwanComponent getThis() {
     return this;
   }
 
@@ -35,13 +35,19 @@ class SwanComponent extends javax.swing.JComponent {
 
     timer = new Timer();
 
+    type.init(getThis());
+
     isAnimating = true;
 
     timer.scheduleAtFixedRate(new TimerTask() {
       public void run() {
 
+        // System.out.println("Animating");
+
         if (type.isFinished()) {
+          System.out.println("Finished");
           timer.cancel();
+          timer.purge();
           type.generate(getThis());
           isAnimating = false;
           return;
