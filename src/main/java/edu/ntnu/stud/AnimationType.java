@@ -9,6 +9,7 @@ public class AnimationType {
   private int elapsed;
   private float duration;
   private final EasingFunction easingFunction;
+  private boolean override = true;
 
   public AnimationType(float duration) {
     this.elapsed = 0;
@@ -22,6 +23,15 @@ public class AnimationType {
     this.duration = duration;
 
     this.easingFunction = easingFunction;
+  }
+
+  public boolean getOverride() {
+    return override;
+  }
+
+  public AnimationType setOverride(boolean override) {
+    this.override = override;
+    return this;
   }
 
   public Double getEased() {
@@ -50,6 +60,11 @@ public class AnimationType {
 
   public void setCurrentFrame(int arg1) {
     elapsed = arg1;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    return obj.getClass().equals(this.getClass());
   }
 
   void init(SwanComponent sComponent) {

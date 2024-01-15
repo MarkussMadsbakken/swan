@@ -28,7 +28,7 @@ public class Main {
 
             if (big) {
                 swanComponent.animate(new Size(140, 40, new EaseInOut()));
-                swanComponent.animate(new Position(50, 100, new EaseInOut()));
+                swanComponent.animate(new Position(0, 100, new EaseInOut()));
             } else {
                 swanComponent.animate(new Size(200, 200, new EaseInOut()));
                 swanComponent.animate(new Position(50, 50, new EaseInOut()));
