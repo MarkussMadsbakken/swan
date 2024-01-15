@@ -69,16 +69,16 @@ Multiple animations can be triggered at once.
 swanComponent.animate(new Position(200, 200));
 swanComponent.animate(new Size(200, 200));
 ```
-Only one type of animation can be triggered at once. In the example under, the first animation will be cancelled when the secound animation triggers.
+Only one type of animation can be triggered at once. In the example under, the first animation will be cancelled when the second animation triggers.
 
 ```java
-//The secound animation will cancel the first
+//The second animation will cancel the first
 swanComponent.animate(new Position(200, 200));
 swanComponent.animate(new Position(400, 400));
 ```
 To control if an animation cancels another, use the setOverride method.
 ```java
-//The secound animation will not cancel the first
+//The second animation will not cancel the first
 swanComponent.animate(new Position(200, 200));
 swanComponent.animate(new Position(400, 400).setOverride(false));
 ```
